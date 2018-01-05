@@ -12,10 +12,11 @@ body
     nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
         ul.navbar-nav
             li.nav-item: a.navbar-brand(href='#'): img(src="actinidia.jpg", style="width:40px;")
-            li.nav-item: a.nav-link(href='home') Home
-            li.nav-item: a.nav-link(href='about') About
-            li.nav-item: a.nav-link(href='entry') Entry
-            li.nav-item: a.nav-link(href='reg') Reg
+            li.nav-item: a(class="nav-link #{selected=='home'?'active':''}", href='home') Домашняя
+            li.nav-item: a(class="nav-link #{selected=='about'?'active':''}", href='about') О проекте
+            li.nav-item: a(class="nav-link #{selected=='entry'?'active':''}", href='entry') Войти
+            if logged
+                li.nav-item: a(class="nav-link #{selected=='reg'?'active':''}", href='reg') Регистрация
     //hr
     br
 block content

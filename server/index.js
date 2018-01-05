@@ -4,6 +4,11 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     server;
 
+// для отладки
+var store = {
+    logged: true
+}
+
 app.use(favicon(__dirname + '/public/images/actinidia.ico'));
 app.use("/actinidia.jpg", express.static(__dirname + '/public/images/actinidia.jpg'));
 
@@ -20,7 +25,7 @@ app.route('/entry')
     .get(function(req, res){
         // вывот формы входа
         console.log(1);
-        res.render('entry');
+        res.render('entry', Object.assign({selected: 'entry'},store));
     })
     .post(function(req, res){
         console.log(req.body);
@@ -36,7 +41,11 @@ app.get('/:page?', function(req, res) {
     console.log(req.params);
     var page = req.params.page;
     console.log(page);
-    res.render('undefined');
+    if (page == 'about') {
+        res.render('about', Object.assign({selected: 'about'},store));
+        return;
+    }
+    res.render('undefined', store);
 });
 
 server = app.listen(80, function(){
