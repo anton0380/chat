@@ -5,6 +5,7 @@ var express = require('express'),
     server;
 
 app.use(favicon(__dirname + '/public/images/actinidia.ico'));
+app.use("/actinidia.jpg", express.static(__dirname + '/public/images/actinidia.jpg'));
 
 app.disable('x-powered-by');
 app.set('view engine', 'jade');
