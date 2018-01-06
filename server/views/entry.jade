@@ -1,4 +1,16 @@
 extends layout
 block content
     .container
-        p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis voluptatem maxime aliquid explicabo accusantium similique iusto enim animi delectus, culpa consequuntur, ex illo non voluptas veniam sunt vero asperiores eveniet.
+        h1 Вход
+        p  Введите данные:
+        form(method='post' action='/reg')
+            fieldset
+                .form-group
+                    label(for='login') Логин
+                    input#login.form-control(name='login' type='text')
+                .form-group
+                    label(for='password') Пароль
+                    input#password.form-control(name='password' type='text')
+                .form-group
+                    button.btn.btn-primary(type='submit') Войти
+        

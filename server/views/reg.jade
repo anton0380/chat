@@ -1,4 +1,18 @@
 extends layout
 block content
     .container
-        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab magnam iusto nesciunt modi autem quae voluptatem illo nisi aperiam, porro ex natus, sunt quos molestias dolorem voluptatum, quam vitae odit?
+        h1 Регистрация
+        p Заполните данные для регистрации:
+        form(method='post' action='/reg')
+            fieldset
+                .form-group
+                    label(for='login') Логин
+                    input#login.form-control(name='login' type='text')
+                .form-group
+                    label(for='password') Пароль
+                    input#password.form-control(name='password' type='text')
+                .form-group
+                    label(for='email') e-mail
+                    input#email.form-control(name='email' type='text')
+                .form-group
+                    button.btn.btn-primary(type='submit') Применить

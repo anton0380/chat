@@ -6,7 +6,7 @@ var express = require('express'),
 
 // для отладки
 var store = {
-    logged: true
+    logged: false
 }
 
 app.use(favicon(__dirname + '/public/images/actinidia.ico'));
@@ -21,6 +21,8 @@ app.use(function(req, res, next) {
 });
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
+
+// авторизация пользователя
 app.route('/entry')
     .get(function(req, res){
         // вывот формы входа
@@ -32,6 +34,37 @@ app.route('/entry')
         var data = req.body;
         if (data.login && data.password) {
             // обработка входа
+        }
+        res.redirect('/');
+    });
+
+// регистрация нового пользователя
+app.route('/reg')
+    .get(function(req, res){
+        // вывот формы регистрации
+        console.log(1);
+        res.render('reg', Object.assign({selected: 'reg'},store));
+    })
+    .post(function(req, res){
+        console.log(req.body);
+        var data = req.body;
+        if (data.login && data.password) {
+            // обработка регистрации
+        }
+        res.redirect('/');
+    });
+
+// здесь главная страница
+app.route('/home')
+    .get(function(req, res){
+        // вывот главной страницы
+        res.render('home', Object.assign({selected: 'home'},store));
+    })
+    .post(function(req, res){
+        console.log(req.body);
+        var data = req.body;
+        if (data.login && data.password) {
+            // обработка данных ввода
         }
         res.redirect('/');
     });
