@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -12,7 +13,9 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "jade": "^1.11.0",
-    "nodemon": "^1.14.8",
     "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.9"
   }
 }
