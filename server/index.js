@@ -4,6 +4,15 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     server;
 
+var mongoClient = require("mongodb").MongoClient;
+mongoClient.connect("mongodb://localhost:27017/test", function(err, db){
+    if(err){
+        return console.log(err);
+    }
+    // взаимодействие с базой данных
+    db.close();
+});
+
 // для отладки
 var store = {
     logged: false
