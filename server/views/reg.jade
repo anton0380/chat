@@ -3,16 +3,16 @@ block content
     .container
         h1 Регистрация
         p Заполните данные для регистрации:
-        form(method='post' action='/reg')
+        form.form-reg(method='post' action='/reg')
             fieldset
                 .form-group
                     label(for='login') Логин
-                    input#login.form-control(name='login' type='text')
+                    input#login.form-control(name='login' type='text' required='' autofocus='')
                 .form-group
                     label(for='password') Пароль
-                    input#password.form-control(name='password' type='text')
+                    input#password.form-control(name='password' type='password' required='')
                 .form-group
                     label(for='email') e-mail
-                    input#email.form-control(name='email' type='text')
+                    input#email.form-control(name='email' type='email' required='')
                 .form-group
                     button.btn.btn-primary(type='submit') Применить
